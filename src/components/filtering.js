@@ -5,12 +5,17 @@ const compare = createComparison(defaultRules);
 
 export function initFiltering(elements, indexes) {
   // @todo: #4.1 — заполнить выпадающие списки опциями
-  Object.keys(indexes).forEach((elementName) => {
+  const mappedIndexes = {
+    searchBySeller: indexes.sellers,
+    searchByCustomer: indexes.customers,
+  };
+
+  Object.entries(mappedIndexes).forEach(([elementName, values]) => {
     const select = elements[elementName];
-    if (!select) return;
+    if (!select || !values) return;
 
     select.append(
-      ...Object.values(indexes[elementName]).map((name) => {
+      ...Object.values(values).map((name) => {
         const option = document.createElement("option");
         option.value = name;
         option.textContent = name;
@@ -24,7 +29,7 @@ export function initFiltering(elements, indexes) {
     if (action && action.name === "clear") {
       const field = action.dataset.field;
       const target = action
-        .closest(".filter-wrapper")
+        .closest(".filter-wrapper, .dropdown-select")
         ?.querySelector("input, select");
 
       if (target) {
