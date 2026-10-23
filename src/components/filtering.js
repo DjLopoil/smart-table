@@ -37,12 +37,18 @@ export function initFiltering(elements) {
     Object.keys(elements).forEach((key) => {
       const element = elements[key];
 
-      if (element && ["INPUT", "SELECT"].includes(element.tagName) && element.value) {
+      if (
+        element &&
+        ["INPUT", "SELECT"].includes(element.tagName) &&
+        element.value
+      ) {
         filter[`filter[${element.name}]`] = element.value;
       }
     });
 
-    return Object.keys(filter).length ? Object.assign({}, query, filter) : query;
+    return Object.keys(filter).length
+      ? Object.assign({}, query, filter)
+      : query;
   };
 
   return {

@@ -55,7 +55,9 @@ const sampleTable = initTable(
 );
 
 const applySearching = initSearching("search");
-const { applyFiltering, updateIndexes } = initFiltering(sampleTable.filter.elements);
+const { applyFiltering, updateIndexes } = initFiltering(
+  sampleTable.filter.elements,
+);
 const applySorting = initSorting([
   sampleTable.header.elements.sortByDate,
   sampleTable.header.elements.sortByTotal,

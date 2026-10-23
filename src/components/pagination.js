@@ -10,7 +10,8 @@ export const initPagination = (
   let pageCount = 1;
 
   const applyPagination = (query, state, action) => {
-    const limit = Number.parseInt(state.rowsPerPage ?? rowsPerPage.value ?? "10", 10) || 10;
+    const limit =
+      Number.parseInt(state.rowsPerPage ?? rowsPerPage.value ?? "10", 10) || 10;
     let page = Number.parseInt(state.page ?? "1", 10) || 1;
 
     if (action) {
