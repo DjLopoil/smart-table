@@ -1,2 +1,2 @@
-# sp6-2_smart-table_starter
+# sp7_smart-table
 https://github.com/DjLopoil/smart-table.git
